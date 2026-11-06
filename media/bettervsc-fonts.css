@@ -1,0 +1,65 @@
+/*
+ * BetterVSC fonts
+ * BETTERVSC_FONTS_V1
+ *
+ * Editor code : JetBrains Mono (Latin) + Maple Mono NF CN (CJK)
+ * Terminal    : Maple Mono NF CN only
+ * Everything else (workbench, chat, panels, lists, etc.) : Maple + MiSans fallback
+ *
+ * The editor font is also set through editor.fontFamily. This file mainly
+ * forces the workbench UI and the terminal, which have no font setting.
+ */
+
+:root,
+.monaco-workbench {
+	--bettervsc-ui-font: "Maple Mono NF CN", "MiSans", "Segoe UI", sans-serif;
+	--bettervsc-code-font: "JetBrains Mono", "Maple Mono NF CN", "MiSans", monospace;
+	--bettervsc-terminal-font: "Maple Mono NF CN", "MiSans", monospace;
+
+	/* Newer VS Code components read these theme variables directly. */
+	--vscode-font-family: var(--bettervsc-ui-font) !important;
+	--vscode-editor-font-family: var(--bettervsc-code-font) !important;
+	--monaco-monospace-font: var(--bettervsc-terminal-font) !important;
+}
+
+/* Workbench UI. Covers the Windows defaults and all language variants. */
+.monaco-workbench,
+.monaco-workbench.windows,
+.monaco-workbench.windows:lang(zh-Hans),
+.monaco-workbench.windows:lang(zh-Hant),
+.monaco-workbench.windows:lang(ja),
+.monaco-workbench.windows:lang(ko),
+.monaco-workbench.mac {
+	font-family: var(--bettervsc-ui-font) !important;
+}
+
+/*
+ * Terminal. xterm sets font-family inline/generated rules from
+ * terminal.integrated.fontFamily; !important makes Maple win even if another
+ * extension or a profile tries to change it.
+ */
+.xterm,
+.xterm .xterm-rows,
+.xterm .xterm-helper-textarea,
+.xterm .xterm-char-measure-element,
+.xterm .xterm-accessibility-tree,
+.xterm .xterm-decoration-container {
+	font-family: var(--bettervsc-terminal-font) !important;
+}
+
+/*
+ * Debug console uses a Monaco editor whose default is var(--monaco-monospace-font).
+ * Keep it explicit as well.
+ */
+.monaco-workbench .repl,
+.monaco-workbench .repl .monaco-editor,
+.monaco-workbench .repl .view-lines {
+	font-family: var(--bettervsc-terminal-font) !important;
+}
+
+/* Markdown preview code blocks. */
+.monaco-workbench .markdown-body code,
+.monaco-workbench .markdown-body pre,
+.monaco-workbench .markdown-body pre code {
+	font-family: var(--bettervsc-code-font) !important;
+}

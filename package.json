@@ -1,0 +1,120 @@
+{
+	"name": "bettervsc",
+	"displayName": "BetterVSC",
+	"description": "Forces the BetterVSC font scheme, enables the Neovide jelly cursor in the editor/terminal/file explorer, and adds Vim-style keyboard navigation for the Explorer.",
+	"version": "1.1.3",
+	"publisher": "bettervsc",
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.90.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "bettervsc.apply",
+				"title": "BetterVSC: Apply Fonts and Cursor"
+			},
+			{
+				"command": "bettervsc.injectCustomCss",
+				"title": "BetterVSC: Re-inject Cursor and Font CSS"
+			},
+			{
+				"command": "bettervsc.openFocusedInEditor",
+				"title": "BetterVSC: Open Focused File and Focus Editor"
+			},
+			{
+				"command": "bettervsc.toggleExplorerVim",
+				"title": "BetterVSC: Toggle Vim Keys in Explorer"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "list.focusDown",
+				"key": "j",
+				"when": "filesExplorerFocus && bettervsc.explorerVim && !inputFocus"
+			},
+			{
+				"command": "list.focusUp",
+				"key": "k",
+				"when": "filesExplorerFocus && bettervsc.explorerVim && !inputFocus"
+			},
+			{
+				"command": "list.collapse",
+				"key": "h",
+				"when": "filesExplorerFocus && bettervsc.explorerVim && !inputFocus && explorerResourceIsFolder"
+			},
+			{
+				"command": "list.focusParent",
+				"key": "h",
+				"when": "filesExplorerFocus && bettervsc.explorerVim && !inputFocus && !explorerResourceIsFolder"
+			},
+			{
+				"command": "list.focusParent",
+				"key": "shift+h",
+				"when": "filesExplorerFocus && bettervsc.explorerVim && !inputFocus"
+			},
+			{
+				"command": "list.toggleExpand",
+				"key": "l",
+				"when": "filesExplorerFocus && bettervsc.explorerVim && !inputFocus && explorerResourceIsFolder"
+			},
+			{
+				"command": "bettervsc.openFocusedInEditor",
+				"key": "l",
+				"when": "filesExplorerFocus && bettervsc.explorerVim && !inputFocus && !explorerResourceIsFolder"
+			},
+			{
+				"command": "bettervsc.openFocusedInEditor",
+				"key": "enter",
+				"when": "filesExplorerFocus && bettervsc.explorerVim && !inputFocus && !explorerResourceIsFolder"
+			},
+			{
+				"command": "bettervsc.openFocusedInEditor",
+				"key": "o",
+				"when": "filesExplorerFocus && bettervsc.explorerVim && !inputFocus && !explorerResourceIsFolder"
+			},
+			{
+				"command": "list.toggleExpand",
+				"key": "o",
+				"when": "filesExplorerFocus && bettervsc.explorerVim && !inputFocus && explorerResourceIsFolder"
+			},
+			{
+				"command": "list.focusPageDown",
+				"key": "ctrl+d",
+				"when": "filesExplorerFocus && bettervsc.explorerVim && !inputFocus"
+			},
+			{
+				"command": "list.focusPageUp",
+				"key": "ctrl+u",
+				"when": "filesExplorerFocus && bettervsc.explorerVim && !inputFocus"
+			},
+			{
+				"command": "workbench.action.focusActiveEditorGroup",
+				"key": "escape",
+				"when": "filesExplorerFocus && bettervsc.explorerVim && !inputFocus"
+			}
+		],
+		"configuration": {
+			"title": "BetterVSC",
+			"properties": {
+				"bettervsc.enforce": {
+					"type": "boolean",
+					"default": true,
+					"description": "Re-apply the forced font and terminal settings whenever they are changed."
+				},
+				"bettervsc.explorerVim": {
+					"type": "boolean",
+					"default": true,
+					"description": "Use Vim-style keys (j/k/h/l/o, Enter, Escape, Ctrl+d/u) in the File Explorer. Disable if you need the normal type-ahead search."
+				}
+			}
+		}
+	}
+}
