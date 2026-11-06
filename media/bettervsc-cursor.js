@@ -1,4 +1,4 @@
-/*
+﻿/*
  * BetterVSC jelly cursor
  * BETTERVSC_CURSOR_V3
  *
@@ -90,8 +90,8 @@
 	// ------------------------------------------------------------------
 	// Timing
 	// ------------------------------------------------------------------
-	const animationLength = 0.105;
-	const shortAnimationLength = 0.042;
+	const animationLength = 0.075;
+	const shortAnimationLength = 0.03;
 	const shortMoveThreshold = 8;
 
 	// ------------------------------------------------------------------
@@ -105,7 +105,7 @@
 	const useHardSnap = true;
 	const leadingSnapFactor = 0.1;
 	const leadingSnapThreshold = 0.5;
-	const animationResetThreshold = 0.075;
+	const animationResetThreshold = 0.05;
 	const maxTrailDistanceFactor = 100;
 	const snapAnimationLength = 0.02;
 
@@ -113,12 +113,12 @@
 	// Global cursor management
 	// ------------------------------------------------------------------
 	const cursorUpdatePollingRate = 100;
-	const cursorDisappearDelay = 40;
-	const cursorFadeOutDuration = 0.06;
+	const cursorDisappearDelay = 30;
+	const cursorFadeOutDuration = 0.05;
 
 	const canvasFadeTransitionCss = `opacity ${cursorFadeOutDuration}s ease-out`;
 	const nativeCursorDisappearTransitionCss = "opacity 0s ease-out";
-	const nativeCursorRevealTransitionCss = "opacity 0.06s ease-in";
+	const nativeCursorRevealTransitionCss = "opacity 0.05s ease-in";
 
 	const terminalAnimatingClass = "bettervsc-terminal-animating";
 

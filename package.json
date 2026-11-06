@@ -2,7 +2,7 @@
 	"name": "bettervsc",
 	"displayName": "BetterVSC",
 	"description": "Forces the BetterVSC font scheme, enables the Neovide jelly cursor in the editor/terminal/file explorer, and adds Vim-style keyboard navigation for the Explorer.",
-	"version": "1.1.3",
+	"version": "1.1.4",
 	"publisher": "bettervsc",
 	"license": "MIT",
 	"engines": {
